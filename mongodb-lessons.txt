@@ -1,0 +1,30 @@
+mongodb.find() -> find all matched documents
+accepts 
+find({ name: 'value' }) documents will be compared with this object
+
+=== 
+
+update(query, replace)
+accepts query as param find criteria replace can be object that will be replaced
+
+
+insertMany(Array of ducuments)
+allows as to insert array of data
+
+
+Projection
+
+projection is the second argument in find function allows us to filter data that by specific keys
+
+Example
+
+const data = [
+  {
+    name: 'Vadim',
+    age: 22,
+  }
+]
+find({}, {
+  name: 1, -> if value is 1 so it will take as true and will filter all data by key provided
+  _id: 0, -> if value is 0 consider false all data will be not available.
+})
