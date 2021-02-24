@@ -121,7 +121,7 @@ export class AuthService {
       to: user.email,
       subject: 'Forgot Password',
       html: `
-          <h3>Hello ${user.firstName}!</h3>
+          <h3>Hello ${user.userName}!</h3>
           <p>Please use this <a href="${forgotLink}">link</a> to reset your password.</p>
       `,
     });
@@ -150,7 +150,7 @@ export class AuthService {
       to: user.email,
       subject: 'Verify User',
       html: `
-        <h3>Hello ${user.firstName}!</h3>
+        <h3>Hello ${user.userName}!</h3>
         <p>Please use this <a href="${confirmLink}">link</a> to confirm your account.</p>
       `,
     });
