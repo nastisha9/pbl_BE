@@ -19,7 +19,7 @@ import { JwtStrategy } from './jwt.strategy';
     configModule,
     PassportModule.register({ defaultStrategy: 'jwt' }),
     JwtModule.register({
-      secret: process.env.JWT_SECRET,
+      secret: 'MySuperSecretString',
       signOptions: { expiresIn: '1d' },
     }),
     MailModule,
