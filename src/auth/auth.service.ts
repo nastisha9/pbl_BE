@@ -20,7 +20,6 @@ import { CreateUserTokenDto } from 'src/token/dto/create-user-token.dto';
 import { SignInDto } from './dto/signin.dto';
 import { ForgotPasswordDto } from './dto/forgot-password.dto';
 
-import { roleEnum } from 'src/user/enums/role.enum';
 import { statusEnum } from 'src/user/enums/status.enum';
 import { userSensitiveFieldsEnum } from 'src/user/enums/protected-fields.enum';
 
@@ -46,7 +45,7 @@ export class AuthService {
   }
 
   async signUp(createUserDto: CreateUserDto): Promise<boolean> {
-    const user = await this.userService.create(createUserDto, [roleEnum.user]);
+    const user = await this.userService.create(createUserDto);
     await this.sendConfirmation(user);
     return true;
   }

@@ -6,10 +6,12 @@ import {
   IsOptional,
   Matches,
   IsEnum,
+  IsIn,
 } from 'class-validator';
 import { CreateAddressDto } from './create-address.dto';
 
 import { genderEnum } from '../enums/gender.enum';
+import { roleEnum } from '../enums/role.enum';
 
 export class CreateUserDto {
   @ApiProperty()
@@ -50,7 +52,10 @@ export class CreateUserDto {
   @IsString()
   @IsNotEmpty()
   readonly phone: string;
-  readonly role: Array<string>;
+
+  @ApiProperty()
+  @IsNotEmpty()
+  readonly roles: Array<string>;
 
   @IsString()
   @IsNotEmpty()
