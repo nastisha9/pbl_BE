@@ -7,6 +7,7 @@ import { AuthModule } from './auth/auth.module';
 import { TokenModule } from './token/token.module';
 import { MailModule } from './mail/mail.module';
 import { PositionModule } from './position/position.module';
+import { LeadModule } from './lead/lead.module';
 
 @Module({
   imports: [
@@ -21,6 +22,7 @@ import { PositionModule } from './position/position.module';
     MailModule,
     PositionModule,
     PositionModule,
+    LeadModule,
   ],
 })
 export class AppModule {}
