@@ -54,9 +54,9 @@ export class AuthService {
     const user = await this.userService.findByEmail(email);
 
     if (user && (await bcrypt.compare(password, user.password))) {
-      if (user.status !== statusEnum.active) {
-        throw new MethodNotAllowedException();
-      }
+      // if (user.status !== statusEnum.active) {
+      //   throw new MethodNotAllowedException();
+      // }
 
       const token = await this.signUser(user);
 
@@ -73,9 +73,9 @@ export class AuthService {
   }
 
   async signUser(user: IUser, withStatusCheck = true): Promise<string> {
-    if (withStatusCheck && user.status !== statusEnum.active) {
-      throw new MethodNotAllowedException();
-    }
+    // if (withStatusCheck && user.status !== statusEnum.active) {
+    //   throw new MethodNotAllowedException();
+    // }
 
     const tokenPayload: ITokenPayload = {
       _id: user._id,
