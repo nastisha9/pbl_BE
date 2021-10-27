@@ -8,6 +8,7 @@ import { TokenModule } from './token/token.module';
 import { MailModule } from './mail/mail.module';
 import { PositionModule } from './position/position.module';
 import { LeadModule } from './lead/lead.module';
+import { MarkerModule } from './marker/marker.module';
 
 @Module({
   imports: [
@@ -23,6 +24,7 @@ import { LeadModule } from './lead/lead.module';
     PositionModule,
     PositionModule,
     LeadModule,
+    MarkerModule,
   ],
 })
 export class AppModule {}
