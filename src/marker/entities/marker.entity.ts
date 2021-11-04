@@ -2,9 +2,10 @@ import { Document } from 'mongoose';
 import { RecycleType } from './recycleType.entity';
 
 export class Marker extends Document{
-    id: Number;
+    // id: Number;
     name: String;
     latitude: Number;
     longitude: Number;
-    recycleType: RecycleType;
+    recycleType: String;
+    createdBy: Number;
 }

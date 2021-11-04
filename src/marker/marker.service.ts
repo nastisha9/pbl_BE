@@ -4,27 +4,16 @@ import { CreateMarkerDto } from './dto/create-marker.dto';
 import { UpdateMarkerDto } from './dto/update-marker.dto';
 import { Marker } from './entities/marker.entity';
 import { Model } from 'mongoose';
-import { RecycleType } from './entities/recycleType.entity';
 
 @Injectable()
 export class MarkerService {
   constructor(
     @InjectModel('Marker') private readonly markerModel: Model<Marker>,
-    @InjectModel('RecycleType') private readonly recycleTypeModel: Model<RecycleType>,
   ){}
 
   async create(createMarkerDto: CreateMarkerDto): Promise<Marker> {
-    const newRecycleType = new this.recycleTypeModel({
-      marker_color: createMarkerDto.marker_color,
-      label: createMarkerDto.recycleTypeNames,
-      description: createMarkerDto.description,
-      icon: createMarkerDto.icon,
-    })
     const newMarker = new this.markerModel({
-      name: createMarkerDto.name,
-      latitude: createMarkerDto.latitude,
-      longitude: createMarkerDto.longitude,
-      recycleType: newRecycleType
+    ...createMarkerDto
     })
     return await newMarker.save();
   }
@@ -33,15 +22,15 @@ export class MarkerService {
     return await this.markerModel.find().exec();
   }
 
-  async findOne(id: number): Promise<Marker> {
-    return await null;
+  async findOne(id: string): Promise<Marker> {
+    return await this.markerModel.findById(id).exec();
   }
 
-  update(id: number, updateMarkerDto: UpdateMarkerDto) {
-    return `This action updates a #${id} marker`;
+  async update(id: string, updateMarkerDto: UpdateMarkerDto): Promise<Marker> {
+    return await this.markerModel.findByIdAndUpdate({_id: id}, updateMarkerDto).exec();
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} marker`;
+  async remove(id: string): Promise<Marker> {
+    return await this.markerModel.findByIdAndDelete(id).exec();
   }
 }

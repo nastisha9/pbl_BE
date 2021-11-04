@@ -1,14 +1,21 @@
-import { PartialType } from '@nestjs/mapped-types';
-import { CreateMarkerDto } from './create-marker.dto';
+import { ApiProperty } from "@nestjs/swagger";
 
-export class UpdateMarkerDto extends PartialType(CreateMarkerDto) {
-    id: Number;
-    name: String;
-    latitude: Number;
-    longitude: Number;
-    recycleTypeName: Array<String>;
-    marker_color: String;
-    description: String;
-    icon: String;
-    createdBy: Number;
+
+export class UpdateMarkerDto{
+    @ApiProperty()
+    readonly name: String;
+    @ApiProperty()
+    readonly latitude: Number;
+    @ApiProperty()
+    readonly longitude: Number;
+    @ApiProperty()
+    // readonly recycleTypeNames: Array<String>;
+    // @ApiProperty()
+    // readonly marker_color: String;
+    // @ApiProperty()
+    // readonly description: String;
+    // @ApiProperty()
+    // readonly icon: String;
+    // @ApiProperty()
+    readonly createdBy: Number;
 }
