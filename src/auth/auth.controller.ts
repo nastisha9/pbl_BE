@@ -33,6 +33,7 @@ export class AuthController {
   async signUp(
     @Body(new ValidationPipe()) createUserDto: CreateUserDto,
   ): Promise<boolean> {
+    console.warn('USER__', createUserDto);
     return this.authService.signUp(createUserDto);
   }
 
