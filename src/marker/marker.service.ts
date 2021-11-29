@@ -4,6 +4,7 @@ import { CreateMarkerDto } from './dto/create-marker.dto';
 import { UpdateMarkerDto } from './dto/update-marker.dto';
 import { Marker } from './entities/marker.entity';
 import { Model } from 'mongoose';
+import { string } from '@hapi/joi';
 
 @Injectable()
 export class MarkerService {
@@ -22,7 +23,7 @@ export class MarkerService {
     return await this.markerModel.find().exec();
   }
 
-  async findOne(id: string): Promise<Marker> {
+  async findOneById(id: string): Promise<Marker> {
     return await this.markerModel.findById(id).exec();
   }
 
@@ -33,4 +34,5 @@ export class MarkerService {
   async remove(id: string): Promise<Marker> {
     return await this.markerModel.findByIdAndDelete(id).exec();
   }
+
 }

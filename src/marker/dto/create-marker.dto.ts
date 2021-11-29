@@ -1,4 +1,5 @@
 import { ApiProperty } from "@nestjs/swagger";
+import { RecycleType } from "../entities/recycleType.entity";
 
 export class CreateMarkerDto {
     @ApiProperty()
@@ -7,14 +8,8 @@ export class CreateMarkerDto {
     readonly latitude: Number;
     @ApiProperty()
     readonly longitude: Number;
+    @ApiProperty({type: RecycleType})
+    readonly type: RecycleType;
     @ApiProperty()
-    // readonly recycleTypeNames: String;
-    // @ApiProperty()
-    // readonly marker_color: String;
-    // @ApiProperty()
-    // readonly description: String;
-    // @ApiProperty()
-    // readonly icon: String;
-    // @ApiProperty()
     readonly createdBy: Number;
 }
