@@ -21,7 +21,7 @@ export class MarkerController {
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.markerService.findOne(id);
+    return this.markerService.findOneById(id);
   }
 
   @Put(':id')

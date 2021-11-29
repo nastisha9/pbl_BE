@@ -1,21 +1,18 @@
 import { ApiProperty } from "@nestjs/swagger";
+import { RecycleType } from "../entities/recycleType.entity";
 
 
 export class UpdateMarkerDto{
+    // @ApiProperty()
+    // readonly createdAt: String;
     @ApiProperty()
     readonly name: String;
     @ApiProperty()
     readonly latitude: Number;
     @ApiProperty()
     readonly longitude: Number;
+    @ApiProperty({type: RecycleType})
+    readonly type: RecycleType;
     @ApiProperty()
-    // readonly recycleTypeNames: Array<String>;
-    // @ApiProperty()
-    // readonly marker_color: String;
-    // @ApiProperty()
-    // readonly description: String;
-    // @ApiProperty()
-    // readonly icon: String;
-    // @ApiProperty()
     readonly createdBy: Number;
 }
