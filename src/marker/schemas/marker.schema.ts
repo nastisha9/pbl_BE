@@ -16,4 +16,4 @@ export const MarkerSchema = new mongoose.Schema({
     },
     recycleType: String,
     createdBy: Number,
-});
+}, {timestamps: true});
