@@ -14,7 +14,7 @@ export class MarkerController {
     return this.markerService.create(createMarkerDto);
   }
 
-  @Get()
+  @Get('/all')
   findAll() {
     return this.markerService.findAll();
   }
